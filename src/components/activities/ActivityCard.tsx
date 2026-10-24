@@ -14,7 +14,11 @@ export default function ActivityCard({
   return (
     <article className="group">
       <Link
-        to={`/contact?activity=${encodeURIComponent(activity.id)}`}
+        to={
+          activity.id === "trekking"
+            ? "/adventures/trekking"
+            : `/contact?activity=${encodeURIComponent(activity.id)}`
+        }
         className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C84A23]"
         aria-label={`Enquire about ${activity.title}`}
       >

@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowUpRight, CheckCircle2, MapPin, Phone } from "lucide-react";
+import {
+  ArrowUpRight,
+  CheckCircle2,
+  AlertCircle,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 import { z } from "zod";
@@ -43,7 +49,11 @@ type InquiryFormValues = z.infer<typeof inquirySchema>;
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
-  const [showDemoNotice, setShowDemoNotice] = useState(false);
+
+  const [submissionStatus, setSubmissionStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [submissionMessage, setSubmissionMessage] = useState("");
 
   const requestedActivity = searchParams.get("activity");
   const matchingActivity = allActivities.find(
@@ -65,11 +75,43 @@ export default function Contact() {
     },
   });
 
-  function handleInquiry(values: InquiryFormValues) {
-    // This frontend-only form has no delivery integration.
-    // Do not log or persist the visitor's personal information.
-    void values;
-    setShowDemoNotice(true);
+  async function handleInquiry(values: InquiryFormValues) {
+    setSubmissionStatus("idle");
+    setSubmissionMessage("");
+
+    try {
+      const response = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const result: {
+        message?: string;
+        error?: string;
+      } = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result.error ??
+            "We could not submit your enquiry. Please try again or call the team.",
+        );
+      }
+
+      setSubmissionMessage(
+        result.message ?? "Your enquiry has been received.",
+      );
+      setSubmissionStatus("success");
+    } catch (error) {
+      setSubmissionStatus("error");
+      setSubmissionMessage(
+        error instanceof Error
+          ? error.message
+          : "Unable to reach the server. Please try again or call the team.",
+      );
+    }
   }
 
   return (
@@ -373,30 +415,44 @@ export default function Contact() {
               disabled={isSubmitting}
               className="inline-flex w-full items-center justify-center gap-3 bg-[#203C2D] px-6 py-4 text-sm font-semibold text-[#F4EFE4] transition-colors hover:bg-[#C84A23] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C84A23] disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none sm:w-auto"
             >
-              Review enquiry
+              {isSubmitting ? "Sending enquiry..." : "Send enquiry"}
               <ArrowUpRight size={17} aria-hidden="true" />
             </button>
 
-            {showDemoNotice && (
+            {submissionStatus !== "idle" && (
               <div
-                role="status"
+                role={submissionStatus === "error" ? "alert" : "status"}
                 aria-live="polite"
-                className="border-l-4 border-[#C84A23] bg-[#EEE6D8] p-5"
+                className={`border-l-4 p-5 ${
+                  submissionStatus === "success"
+                    ? "border-[#203C2D] bg-[#E5E9DF]"
+                    : "border-[#C84A23] bg-[#EEE6D8]"
+                }`}
               >
                 <div className="flex items-start gap-3">
-                  <CheckCircle2
-                    size={21}
-                    aria-hidden="true"
-                    className="mt-0.5 shrink-0 text-[#203C2D]"
-                  />
+                  {submissionStatus === "success" ? (
+                    <CheckCircle2
+                      size={21}
+                      aria-hidden="true"
+                      className="mt-0.5 shrink-0 text-[#203C2D]"
+                    />
+                  ) : (
+                    <AlertCircle
+                      size={21}
+                      aria-hidden="true"
+                      className="mt-0.5 shrink-0 text-[#C84A23]"
+                    />
+                  )}
+
                   <div>
                     <p className="font-semibold text-[#203C2D]">
-                      Form validation passed
+                      {submissionStatus === "success"
+                        ? "Enquiry received"
+                        : "Enquiry not confirmed"}
                     </p>
+
                     <p className="mt-2 text-sm leading-7 text-[#292B26]/85">
-                      This form is not connected to an inquiry service, so your
-                      message has not been sent. Please contact the team using
-                      one of the phone numbers listed on this page.
+                      {submissionMessage}
                     </p>
                   </div>
                 </div>

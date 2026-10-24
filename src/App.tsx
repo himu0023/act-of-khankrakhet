@@ -9,6 +9,9 @@ import OutdoorLearning from "./pages/OutdoorLearning";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
+import TrekkingCatalogue from "./pages/TrekkingCatalogue";
+
+
 function NotFound() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-12">
@@ -39,6 +42,10 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
+            <Route
+              path="/adventures/trekking"
+              element={<TrekkingCatalogue />}
+            />
           </Routes>
         </main>
 

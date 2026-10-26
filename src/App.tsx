@@ -11,6 +11,8 @@ import Contact from "./pages/Contact";
 
 import TrekkingCatalogue from "./pages/TrekkingCatalogue";
 
+import TrekkingDetail from "./pages/TrekkingDetails";
+
 
 function NotFound() {
   return (
@@ -45,6 +47,10 @@ export default function App() {
             <Route
               path="/adventures/trekking"
               element={<TrekkingCatalogue />}
+            />
+            <Route
+              path="/adventures/trekking/:slug"
+              element={<TrekkingDetail />}
             />
           </Routes>
         </main>

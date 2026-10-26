@@ -54,6 +54,7 @@ const pendingPackageDetails = {
 
 export const trekkingEvents: TrekkingEvent[] = [
   {
+    ...pendingPackageDetails,
     id: "valley-of-flowers",
     slug: "valley-of-flowers",
     name: "Valley of Flowers",
@@ -69,8 +70,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Sample circuits: 2–4 days; full arrangements to be confirmed",
     difficulty: "To be confirmed",
     altitude: "Approximately 3,600 m (as supplied; verify before publication)",
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -92,9 +91,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Route sequence and feasibility require local confirmation.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "roopkund",
     slug: "roopkund",
     name: "Ali–Bedni Bugyal / Roopkund",
@@ -110,8 +109,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Full trek duration to be confirmed; longer expedition required",
     difficulty: "Difficult",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "4 days",
@@ -134,9 +131,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Sample route from supplied material; confirm route details.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "lord-curzon-pass",
     slug: "lord-curzon-pass",
     name: "Lord Curzon Pass",
@@ -152,8 +149,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Route-dependent; to be confirmed",
     difficulty: "Expedition",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "1 day",
@@ -181,9 +176,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "This is an alternative route sample; do not present as the same pass trek without verification.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "satopanth",
     slug: "satopanth",
     name: "Satopanth",
@@ -199,8 +194,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Expedition duration to be confirmed",
     difficulty: "Expedition",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -221,9 +214,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Requires route, acclimatization, and feasibility confirmation.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "dronagiri",
     slug: "dronagiri",
     name: "Dronagiri",
@@ -239,8 +232,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Sample circuits: 2–4 days",
     difficulty: "To be confirmed",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -258,9 +249,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         route: "Joshimath → Jumma → Dronagiri → local exploration → Joshimath",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "kakbhushandi-track",
     slug: "kakbhushandi-track",
     name: "Kakbhushandi Track",
@@ -276,8 +267,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Expedition duration to be confirmed",
     difficulty: "Expedition",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -300,9 +289,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Not necessarily the complete trek.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "sapt-kund",
     slug: "sapt-kund",
     name: "Sapt Kund",
@@ -318,8 +307,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Expedition duration to be confirmed",
     difficulty: "Difficult",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -340,9 +327,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Route and feasibility to be confirmed.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "panpatta-lake",
     slug: "panpatta-lake",
     name: "Panpatta Lake",
@@ -358,8 +345,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Expedition duration to be confirmed",
     difficulty: "Expedition",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -380,9 +365,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Route and feasibility to be confirmed.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "rudranath-kalpeshwar",
     slug: "rudranath-kalpeshwar",
     name: "Rudranath–Kalpeshwar",
@@ -398,8 +383,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Sample circuits: 2–4 days; full circuit to be confirmed",
     difficulty: "To be confirmed",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -418,9 +401,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Route sequence and feasibility to be confirmed.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "madhmaheshwar-nandikund",
     slug: "madhmaheshwar-nandikund",
     name: "Madhmaheshwar–Nandikund",
@@ -436,8 +419,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Sample circuits: 2–4 days; full arrangements to be confirmed",
     difficulty: "Difficult",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -457,9 +438,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Nandikund route and feasibility require confirmation.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "pindari-glacier",
     slug: "pindari-glacier",
     name: "Pindari Glacier",
@@ -482,8 +463,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Full glacier trek: approximately 7–8 days as supplied",
     difficulty: "To be confirmed",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -504,9 +483,9 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Not the full glacier trek.",
       },
     ],
-    ...pendingPackageDetails,
   },
   {
+    ...pendingPackageDetails,
     id: "all-kedars-badris",
     slug: "all-kedars-badris",
     name: "All Kedars & Badris",
@@ -528,8 +507,6 @@ export const trekkingEvents: TrekkingEvent[] = [
     duration: "Full pilgrimage circuit: longer duration to be confirmed",
     difficulty: "To be confirmed",
     altitude: pending,
-    date: pendingPackageDetails.date,
-    price: pendingPackageDetails.price,
     itineraryOptions: [
       {
         duration: "2 days",
@@ -552,6 +529,5 @@ export const trekkingEvents: TrekkingEvent[] = [
         note: "Not the full Panch Kedar / Badrinath circuit.",
       },
     ],
-    ...pendingPackageDetails,
   },
 ];
